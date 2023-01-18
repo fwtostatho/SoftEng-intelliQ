@@ -1,0 +1,8 @@
+{
+  "name": "SoftEng22-22",
+  "version": "1.0.0",
+  "dependencies": {
+    "express": "^4.18.2",
+    "vue": "^3.2.45"
+  }
+}
