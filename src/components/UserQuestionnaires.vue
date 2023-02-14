@@ -9,19 +9,16 @@
 
 
         <v-container class="text-center">
-            <v-row class="my-5">
-                <v-col
-                        v-for="survey in surveys"
-                >
-                    <v-card >
-                        <v-card-title class="title font-weight-bold">
-                            <v-btn :to="`/usersurveys/${survey.id}`">{{ survey.name }}</v-btn>
+            <v-row class="my-5 justify-center" v-for="survey in surveys">
 
-                        </v-card-title>
+                    <v-card >
+                        <v-list-item-content>
+                    <v-btn @click="goToSurvey(survey.id)">{{ survey.name }} </v-btn>
+                        </v-list-item-content>
 
 
                     </v-card>
-                </v-col>
+
             </v-row>
         </v-container>
 
@@ -29,9 +26,9 @@
 </template>
 
 <script>
-import {options} from "axios";
+
 import postService from '../postservice';
-import {id} from "vuetify/locale";
+
 
 export default {
     name: "UserSurveys",
@@ -49,5 +46,17 @@ export default {
             console.error(error);
         }
     },
-};
+
+
+methods: {
+    // ...mapActions([]),
+            goToSurvey(id) {
+
+                this.$router.push({ name: 'AnswerSurvey', params: { id } });
+            },
+        },
+    // computed: {
+    //     ...mapGetters([])
+    // }
+    };
 </script>

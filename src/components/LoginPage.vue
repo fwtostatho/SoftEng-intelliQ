@@ -1,6 +1,6 @@
 <template>
     <v-app id="inspire">
-        <v-app-bar app color=" bg-indigo-accent-3 " class="pa-0" :elevation="5">
+        <v-app-bar app color="indigo" class="pa-0" :elevation="5">
             <v-col class="d-flex justify-space-around">
                 <h1>IntelliQ</h1>
             </v-col>
@@ -33,6 +33,8 @@
 
                         <v-card-item v-if="selectedValue === 'Admin'" class="bg-indigo-lighten-5" >
                             <v-select
+                                    v-model="adminame"
+                                    v-bind:items="admins"
                                     :items="admins"
                                     label="Select an admin"
                             ></v-select>
@@ -50,7 +52,7 @@
                                     block
                                     rounded
 
-                                    @click="login"
+                                    @click="login(selectedValue)"
                                     class="bg-indigo-lighten-1">
                                 Submit
                             </v-btn>
@@ -69,42 +71,48 @@
 <script>
 import {options} from "axios";
 import requests from '../requests';
+import { mapActions, mapGetters } from "vuex";
 export const BASE_URL = 'http://localhost:9103/intelliq_api' ;
 
 
 export default {
     name: "loginPage",
     data: () => ({
-        items: ['User', 'Admin', 'Institution'],
+        items: ['User', 'Admin'],
         admins: [],
         institutions: [],
         selectedValue: '',
         reveal: false,
+        adminame: ''
 
     }),
     async created() {
         try{
             this.admins = await requests.get(BASE_URL + '/adminPage/');
-            this.institutions = await requests.get(BASE_URL +'/institution/');
         }catch (error) {
             reject(error);
         }
     },
     methods: {
+
         login() {
             if (this.selectedValue === 'User') {
-                var loginUserObj = {
-                    name: ''
-                }
-                requests.post(BASE_URL +'/user/postUser/', loginUserObj, this.loginCallBackUser);
+                // var loginUserObj = {
+                //     name: ''
+                // }
+                // requests.post(BASE_URL +'/user/postUser/', loginUserObj, this.loginCallBackUser);
+                this.$router.push({path: '/usersurveys'});
+            }
+            if (this.selectedValue === 'Admin') {
+                this.$router.push({ name: 'Admin', params: this.selectedValue });
             }
         },
 
 
-        loginCallBackUser(response) {
-            this.$router.push({path: '/homePageUser'});
-            console.log(response);
-        }
+        // loginCallBackUser(response) {
+        //     this.$router.push({path: '/usersurveys'});
+        //     console.log(response);
+        // }
     }
 }
 

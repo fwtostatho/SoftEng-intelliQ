@@ -21,11 +21,36 @@ class requests {
         })
     }
 
-    static post(url, data, callback) {
+    // static post(url, data, callback) {
+    //     return new Promise(async (resolve, reject) => {
+    //         try {
+    //             const res = await axios.post(url, data);
+    //             callback(res.data);
+    //         } catch (error) {
+    //             reject(error);
+    //         }
+    //     })
+    // }
+
+    static post(url) {
         return new Promise(async (resolve, reject) => {
             try {
-                const res = await axios.post(url, data);
-                callback(res.data);
+                const res = await axios.post(url);
+            } catch (error) {
+                reject(error);
+            }
+        })
+    }
+
+    static postAnswer(url, questionnaireID, questionID, session, optionID) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const res = await axios.post(url, null, {params: {
+                        questionnaireID,
+                        questionID,
+                        session,
+                        optionID
+                    }});
             } catch (error) {
                 reject(error);
             }

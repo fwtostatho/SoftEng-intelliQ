@@ -29,5 +29,6 @@ app.use('/intelliq_api',basic);
 app.get('/hello', (req, res) => {
     res.send('Hello');
 });
+app.use((req, res, next) => { res.status(400).json({message: 'Bad request'}); })
 
 module.exports = app;

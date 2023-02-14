@@ -13,6 +13,10 @@ exports.getQuestionnaire = async (req, res) => {
     try {
         const id = req.params.questionnaireID;
         if(!id) {res.status(400).json({message: 'Bad request'}); return;}
+        if((id===' ')) {
+            res.status(400).json({message: 'Bad request'});
+            return;
+        }
         const data = await questionnaireModel.find({questionnaireID: id}, {
             'questions._id': 0,
             'questions.options._id': 0
@@ -43,6 +47,10 @@ exports.getQuestionnaireQuestion = async (req, res) => {
         const id1 = req.params.questionnaireID;
         const id2 = req.params.questionID;
         if(!id1 || !id2) {return res.status(400).json({message: 'Bad request'});}
+        if((id1===' ')||(id2===' ')) {
+            res.status(400).json({message: 'Bad request'});
+            return;
+        }
         const format = req.query.format;
         const results = await questionnaireModel.find({questionnaireID: id1,"questions.qID":id2}, {"questions": {"$elemMatch": {"qID": id2}}}).exec();
         const question = results.map(function (result) {
@@ -85,6 +93,10 @@ exports.postQuestionnaire =  async (req, res) => {
             res.status(400).json({message: 'Bad request'});
         return;
         }
+        if((questionnaireID==' ')||(questionID==' ')||(session==' ')||(optionID==' ')) {
+            res.status(400).json({message: 'Bad request'});
+            return;
+        }
         await answerModel.find({
             session: session, questionnaireID: questionnaireID
         }).then(result => {
@@ -117,6 +129,10 @@ exports.getSessionAnswers = async (req, res) => {
      const ses = req.params.session;
      if(!id || !ses){ res.status(400).json({message: 'Bad request'});
          return;}
+     if((id===' ')||(ses===' ')) {
+         res.status(400).json({message: 'Bad request'});
+         return;
+     }
      const data = await answerModel.find({questionnaireID: id, session: ses}, {'answers._id': 0}).select('-_id');
      const format = req.query.format;
      if(data.length==0){
@@ -143,6 +159,10 @@ exports.getQuestionAnswers = async (req, res) => {
         const id1 = req.params.questionnaireID;
         const id2 = req.params.questionID;
         if(!id1 || !id2) {res.status(400).json({message: 'Bad request'}); return;}
+        if((id1===' ')||(id2===' ')) {
+            res.status(400).json({message: 'Bad request'});
+            return;
+        }
         const results = await answerModel.find({
             questionnaireID: id1,
             "answers.qID": id2
