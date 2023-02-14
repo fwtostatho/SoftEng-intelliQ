@@ -1,0 +1,251 @@
+{
+    "info": {
+        "_postman_id": "e0bab24b-dff9-425e-9694-7ca4f79e8877",
+        "name": "EndpointsforCLI",
+        "description": "# Introduction\n\nThese are the Administrative Endpoints of our server.\n\n# Overview\n\nExamples are included in each endpoint that returns a response.\n\n# Error Codes\n\nError handling with appropriate HTTP status codes.\n\n\\>500 for Internal server error",
+        "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+        "_exporter_id": "25448118"
+    },
+    "item": [
+        {
+            "name": "/admin/healthcheck",
+            "request": {
+                "method": "GET",
+                "header": [],
+                "url": {
+                    "raw": "{{baseURL}}/admin/healthcheck",
+                    "host": [
+                        "{{baseURL}}"
+                    ],
+                    "path": [
+                        "admin",
+                        "healthcheck"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "/admin/healthcheck",
+                    "originalRequest": {
+                        "method": "GET",
+                        "header": [],
+                        "url": {
+                            "raw": "https://localhost:9103/intelliq_api/admin/healthcheck",
+                            "protocol": "https",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "9103",
+                            "path": [
+                                "intelliq_api",
+                                "admin",
+                                "healthcheck"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "X-Powered-By",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "Access-Control-Allow-Origin",
+                            "value": "*"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "Content-Length",
+                            "value": "135"
+                        },
+                        {
+                            "key": "ETag",
+                            "value": "W/\"87-FPJkQWB75b//S6HibvDt0VnJFHk\""
+                        },
+                        {
+                            "key": "Date",
+                            "value": "Sun, 12 Feb 2023 20:41:03 GMT"
+                        },
+                        {
+                            "key": "Connection",
+                            "value": "keep-alive"
+                        },
+                        {
+                            "key": "Keep-Alive",
+                            "value": "timeout=5"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"status\": \"OK\",\n    \"dbconnection\": [\n        \"mongodb+srv://gerasimos:gerasimos@nodeexpress.xtecm6k.mongodb.net/survey?retryWrites=true&w=majority\"\n    ]\n}"
+                }
+            ]
+        },
+        {
+            "name": "/admin/questionnaire_upd",
+            "request": {
+                "method": "POST",
+                "header": [
+                    {
+                        "key": "Content-Type",
+                        "value": "multipart/form-data",
+                        "type": "text"
+                    }
+                ],
+                "body": {
+                    "mode": "formdata",
+                    "formdata": [
+                        {
+                            "key": "",
+                            "type": "file",
+                            "src": "/D:/Documents/7o Eksamhno/QQ000.json"
+                        }
+                    ]
+                },
+                "url": {
+                    "raw": "https://localhost:9103/intelliq_api/admin/questionnaire_upd",
+                    "protocol": "https",
+                    "host": [
+                        "localhost"
+                    ],
+                    "port": "9103",
+                    "path": [
+                        "intelliq_api",
+                        "admin",
+                        "questionnaire_upd"
+                    ]
+                }
+            },
+            "response": [
+                {
+                    "name": "/admin/questionnaire_upd",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [
+                            {
+                                "key": "Content-Type",
+                                "value": "multipart/form-data",
+                                "type": "text"
+                            }
+                        ],
+                        "body": {
+                            "mode": "formdata",
+                            "formdata": [
+                                {
+                                    "key": "",
+                                    "type": "file",
+                                    "src": "/D:/Documents/7o Eksamhno/QQ000.json"
+                                }
+                            ]
+                        },
+                        "url": {
+                            "raw": "https://localhost:9103/intelliq_api/admin/questionnaire_upd",
+                            "protocol": "https",
+                            "host": [
+                                "localhost"
+                            ],
+                            "port": "9103",
+                            "path": [
+                                "intelliq_api",
+                                "admin",
+                                "questionnaire_upd"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "X-Powered-By",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "Access-Control-Allow-Origin",
+                            "value": "*"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "Content-Length",
+                            "value": "4105"
+                        },
+                        {
+                            "key": "ETag",
+                            "value": "W/\"1009-EOPxiQ/BRa98usIuwtgjNjfJfcY\""
+                        },
+                        {
+                            "key": "Date",
+                            "value": "Sat, 11 Feb 2023 16:44:04 GMT"
+                        },
+                        {
+                            "key": "Connection",
+                            "value": "keep-alive"
+                        },
+                        {
+                            "key": "Keep-Alive",
+                            "value": "timeout=5"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"questionnaireID\": \"QQ000\",\n    \"questionnaireTitle\": \"My first research questionnaire\",\n    \"keywords\": [\n        \"footbal\",\n        \"islands\",\n        \"timezone\"\n    ],\n    \"questions\": [\n        {\n            \"qID\": \"P00\",\n            \"qtext\": \"Ποιο είναι το mail σας;\",\n            \"required\": \"FALSE\",\n            \"type\": \"profile\",\n            \"options\": [\n                {\n                    \"opttxt\": \"<open string>\",\n                    \"nextqID\": \"P01\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5e7\"\n                }\n            ],\n            \"_id\": \"63e7c5d4c23046e9ce00e5e6\"\n        },\n        {\n            \"qID\": \"P01\",\n            \"qtext\": \"Ποια είναι η ηλικία σας;\",\n            \"required\": \"TRUE\",\n            \"type\": \"profile\",\n            \"options\": [\n                {\n                    \"opttxt\": \"<30\",\n                    \"nextqID\": \"Q01\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5e9\"\n                },\n                {\n                    \"opttxt\": \"30-50\",\n                    \"nextqID\": \"Q01\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5ea\"\n                },\n                {\n                    \"opttxt\": \"50-70\",\n                    \"nextqID\": \"Q01\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5eb\"\n                },\n                {\n                    \"opttxt\": \">70\",\n                    \"nextqID\": \"Q01\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5ec\"\n                }\n            ],\n            \"_id\": \"63e7c5d4c23046e9ce00e5e8\"\n        },\n        {\n            \"qID\": \"Q01\",\n            \"qtext\": \"Ποιο είναι το αγαπημένο σας χρώμα;\",\n            \"required\": \"TRUE\",\n            \"type\": \"question\",\n            \"options\": [\n                {\n                    \"opttxt\": \"Πράσινο\",\n                    \"nextqID\": \"Q02\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5ee\"\n                },\n                {\n                    \"opttxt\": \"Κόκκινο\",\n                    \"nextqID\": \"Q02\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5ef\"\n                },\n                {\n                    \"opttxt\": \"Κίτρινο\",\n                    \"nextqID\": \"Q02\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5f0\"\n                }\n            ],\n            \"_id\": \"63e7c5d4c23046e9ce00e5ed\"\n        },\n        {\n            \"qID\": \"Q02\",\n            \"qtext\": \"Ασχολείστε με το ποδόσφαιρο;\",\n            \"required\": \"TRUE\",\n            \"type\": \"question\",\n            \"options\": [\n                {\n                    \"opttxt\": \"Ναι\",\n                    \"nextqID\": \"Q03\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5f2\"\n                },\n                {\n                    \"opttxt\": \"Οχι\",\n                    \"nextqID\": \"Q04\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5f3\"\n                }\n            ],\n            \"_id\": \"63e7c5d4c23046e9ce00e5f1\"\n        },\n        {\n            \"qID\": \"Q03\",\n            \"qtext\": \"Τι ομάδα είστε;\",\n            \"required\": \"TRUE\",\n            \"type\": \"question\",\n            \"options\": [\n                {\n                    \"opttxt\": \"Παναθηναϊκός\",\n                    \"nextqID\": \"Q04\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5f5\"\n                },\n                {\n                    \"opttxt\": \"Ολυμπιακός \",\n                    \"nextqID\": \"Q04\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5f6\"\n                },\n                {\n                    \"opttxt\": \"ΑΕΚ\",\n                    \"nextqID\": \"Q04\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5f7\"\n                }\n            ],\n            \"_id\": \"63e7c5d4c23046e9ce00e5f4\"\n        },\n        {\n            \"qID\": \"Q04\",\n            \"qtext\": \"Έχετε ζήσει σε νησί;\",\n            \"required\": \"TRUE\",\n            \"type\": \"question\",\n            \"options\": [\n                {\n                    \"opttxt\": \"Ναι\",\n                    \"nextqID\": \"Q05\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5f9\"\n                },\n                {\n                    \"opttxt\": \"Οχι\",\n                    \"nextqID\": \"Q06\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5fa\"\n                }\n            ],\n            \"_id\": \"63e7c5d4c23046e9ce00e5f8\"\n        },\n        {\n            \"qID\": \"Q05\",\n            \"qtext\": \"Με δεδομένο ότι απαντήσατε [*Q04A1] στην ερώτηση [*Q04]: Ποια ησχέση σας με το θαλάσσιο σκι;\",\n            \"required\": \"TRUE\",\n            \"type\": \"question\",\n            \"options\": [\n                {\n                    \"opttxt\": \"Καμία\",\n                    \"nextqID\": \"Q07\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5fc\"\n                },\n                {\n                    \"opttxt\": \"Μικρή\",\n                    \"nextqID\": \"Q07\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5fd\"\n                },\n                {\n                    \"opttxt\": \"Μεγάλη\",\n                    \"nextqID\": \"Q07\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e5fe\"\n                }\n            ],\n            \"_id\": \"63e7c5d4c23046e9ce00e5fb\"\n        },\n        {\n            \"qID\": \"Q06\",\n            \"qtext\": \"Είστε χειμερινός κολυμβητής\",\n            \"required\": \"TRUE\",\n            \"type\": \"question\",\n            \"options\": [\n                {\n                    \"opttxt\": \"Ναι\",\n                    \"nextqID\": \"Q07\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e600\"\n                },\n                {\n                    \"opttxt\": \"Οχι\",\n                    \"nextqID\": \"Q07\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e601\"\n                }\n            ],\n            \"_id\": \"63e7c5d4c23046e9ce00e5ff\"\n        },\n        {\n            \"qID\": \"Q07\",\n            \"qtext\": \"Κάνετε χειμερινό σκι;\",\n            \"required\": \"TRUE\",\n            \"type\": \"question\",\n            \"options\": [\n                {\n                    \"opttxt\": \"Σπάνια - καθόλου\",\n                    \"nextqID\": \"Q08\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e603\"\n                },\n                {\n                    \"opttxt\": \"Περιστασιακά\",\n                    \"nextqID\": \"Q08\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e604\"\n                },\n                {\n                    \"opttxt\": \"Τακτικά\",\n                    \"nextqID\": \"Q08\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e605\"\n                }\n            ],\n            \"_id\": \"63e7c5d4c23046e9ce00e602\"\n        },\n        {\n            \"qID\": \"Q08\",\n            \"qtext\": \"Συμφωνείτε να αλλάζει η ώρα κάθε χρόνο;\",\n            \"required\": \"TRUE\",\n            \"type\": \"question\",\n            \"options\": [\n                {\n                    \"opttxt\": \"Ναι\",\n                    \"nextqID\": \"Q09\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e607\"\n                },\n                {\n                    \"opttxt\": \"Οχι\",\n                    \"nextqID\": \"-\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e608\"\n                }\n            ],\n            \"_id\": \"63e7c5d4c23046e9ce00e606\"\n        },\n        {\n            \"qID\": \"Q09\",\n            \"qtext\": \"Με δεδομένο ότι απαντήσατε [*Q08A2] στην ερώτηση [*Q08]: Προτιμάτετη θερινή ή την χειμερινή ώρα;\",\n            \"required\": \"TRUE\",\n            \"type\": \"question\",\n            \"options\": [\n                {\n                    \"opttxt\": \"Θερινή\",\n                    \"nextqID\": \"-\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e60a\"\n                },\n                {\n                    \"opttxt\": \"Χειμερινή\",\n                    \"nextqID\": \"-\",\n                    \"_id\": \"63e7c5d4c23046e9ce00e60b\"\n                }\n            ],\n            \"_id\": \"63e7c5d4c23046e9ce00e609\"\n        }\n    ],\n    \"creator\": \"63dac4fa63085c34f73f18f7\",\n    \"_id\": \"63e7c5d4c23046e9ce00e5e5\"\n}"
+                }
+            ]
+        },
+        {
+            "name": "/admin/resetall",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "{{baseURL}}/admin/resetall",
+                    "host": [
+                        "{{baseURL}}"
+                    ],
+                    "path": [
+                        "admin",
+                        "resetall"
+                    ]
+                }
+            },
+            "response": []
+        },
+        {
+            "name": "/admin/resetq/:questionnaireID",
+            "request": {
+                "method": "POST",
+                "header": [],
+                "url": {
+                    "raw": "{{baseURL}}/admin/resetq/:questionnaireID",
+                    "host": [
+                        "{{baseURL}}"
+                    ],
+                    "path": [
+                        "admin",
+                        "resetq",
+                        ":questionnaireID"
+                    ],
+                    "variable": [
+                        {
+                            "key": "questionnaireID",
+                            "value": null
+                        }
+                    ]
+                }
+            },
+            "response": []
+        }
+    ],
+    "variable": [
+        {
+            "key": "baseURL",
+            "value": "https://localhost:9103/intelliq_api"
+        }
+    ]
+}

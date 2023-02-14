@@ -1,0 +1,579 @@
+{
+    "info": {
+    "_postman_id": "06402f50-2ef9-4a13-9964-f111726f5520",
+            "name": "OperatingEndpoints",
+            "description": "# Introduction\n\nThese are the Operating Endpoints of our server.\n\n# Overview\n\nExamples are included in each endpoint.\n\n# Error Codes\n\nError handling with appropriate HTTP status codes.\n\n\\>400 for a Bad request\n\n\\>402 for No data\n\n\\>500 for Internal server error",
+            "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+            "_exporter_id": "25404223"
+},
+    "item": [
+    {
+        "name": "/questionnaire",
+        "event": [
+            {
+                "listen": "prerequest",
+                "script": {
+                    "exec": [
+                        "",
+                        ""
+                    ],
+                    "type": "text/javascript"
+                }
+            }
+        ],
+        "protocolProfileBehavior": {
+            "disableBodyPruning": true
+        },
+        "request": {
+            "method": "GET",
+            "header": [
+                {
+                    "key": "Content-Type",
+                    "value": "application/json",
+                    "type": "text"
+                },
+                {
+                    "key": "",
+                    "value": "",
+                    "type": "text"
+                }
+            ],
+            "body": {
+                "mode": "raw",
+                "raw": "",
+                "options": {
+                    "raw": {
+                        "language": "json"
+                    }
+                }
+            },
+            "url": {
+                "raw": "{{baseURL}}/questionnaire/:questionnaireID",
+                "host": [
+                    "{{baseURL}}"
+                ],
+                "path": [
+                    "questionnaire",
+                    ":questionnaireID"
+                ],
+                "variable": [
+                    {
+                        "key": "questionnaireID",
+                        "value": "QQ002"
+                    }
+                ]
+            },
+            "description": "question"
+        },
+        "response": [
+            {
+                "name": "/questionnaire",
+                "originalRequest": {
+                    "method": "GET",
+                    "header": [
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json",
+                            "type": "text"
+                        },
+                        {
+                            "key": "",
+                            "value": "",
+                            "type": "text"
+                        }
+                    ],
+                    "body": {
+                        "mode": "raw",
+                        "raw": "",
+                        "options": {
+                            "raw": {
+                                "language": "json"
+                            }
+                        }
+                    },
+                    "url": {
+                        "raw": "https://localhost:9103/intelliq_api/questionnaire/:questionnaireID",
+                        "protocol": "https",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "9103",
+                        "path": [
+                            "intelliq_api",
+                            "questionnaire",
+                            ":questionnaireID"
+                        ],
+                        "variable": [
+                            {
+                                "key": "questionnaireID",
+                                "value": "QQ002"
+                            }
+                        ]
+                    }
+                },
+                "status": "OK",
+                "code": 200,
+                "_postman_previewlanguage": "json",
+                "header": [
+                    {
+                        "key": "X-Powered-By",
+                        "value": "Express"
+                    },
+                    {
+                        "key": "Access-Control-Allow-Origin",
+                        "value": "*"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json; charset=utf-8"
+                    },
+                    {
+                        "key": "Content-Length",
+                        "value": "2339"
+                    },
+                    {
+                        "key": "ETag",
+                        "value": "W/\"923-f3+JlGp3dA5atSAHJlGrpbOUVAA\""
+                    },
+                    {
+                        "key": "Date",
+                        "value": "Sun, 12 Feb 2023 19:46:42 GMT"
+                    },
+                    {
+                        "key": "Connection",
+                        "value": "keep-alive"
+                    },
+                    {
+                        "key": "Keep-Alive",
+                        "value": "timeout=5"
+                    }
+                ],
+                "cookie": [],
+                "body": "[\n    {\n        \"questionnaireID\": \"QQ002\",\n        \"questionnaireTitle\": \"A study about your shopping experience\",\n        \"keywords\": [\n            \"shop\",\n            \"habits\"\n        ],\n        \"questions\": [\n            {\n                \"qID\": \"P00\",\n                \"qtext\": \"What's your gender?\",\n                \"required\": \"TRUE\",\n                \"type\": \"profile\",\n                \"options\": [\n                    {\n                        \"optID\": \"P00A1\",\n                        \"opttxt\": \"Male\",\n                        \"nextqID\": \"P01\"\n                    },\n                    {\n                        \"optID\": \"P00A2\",\n                        \"opttxt\": \"Female\",\n                        \"nextqID\": \"P01\"\n                    },\n                    {\n                        \"optID\": \"P00A3\",\n                        \"opttxt\": \"Other\",\n                        \"nextqID\": \"P01\"\n                    }\n                ]\n            },\n            {\n                \"qID\": \"P01\",\n                \"qtext\": \"What's your age?\",\n                \"required\": \"TRUE\",\n                \"type\": \"profile\",\n                \"options\": [\n                    {\n                        \"optID\": \"P01A1\",\n                        \"opttxt\": \"<30\",\n                        \"nextqID\": \"Q01\"\n                    },\n                    {\n                        \"optID\": \"P01A2\",\n                        \"opttxt\": \"30-50\",\n                        \"nextqID\": \"Q01\"\n                    },\n                    {\n                        \"optID\": \"P01A3\",\n                        \"opttxt\": \"50-70\",\n                        \"nextqID\": \"Q01\"\n                    },\n                    {\n                        \"optID\": \"P01A4\",\n                        \"opttxt\": \">70\",\n                        \"nextqID\": \"Q01\"\n                    }\n                ]\n            },\n            {\n                \"qID\": \"Q01\",\n                \"qtext\": \"What do you like to shop?\",\n                \"required\": \"TRUE\",\n                \"type\": \"question\",\n                \"options\": [\n                    {\n                        \"optID\": \"Q01A1\",\n                        \"opttxt\": \"Clothes\",\n                        \"nextqID\": \"Q02\"\n                    },\n                    {\n                        \"optID\": \"Q01A2\",\n                        \"opttxt\": \"Tech\",\n                        \"nextqID\": \"Q03\"\n                    },\n                    {\n                        \"optID\": \"Q01A3\",\n                        \"opttxt\": \"Cosmetics\",\n                        \"nextqID\": \"Q04\"\n                    }\n                ]\n            },\n            {\n                \"qID\": \"Q02\",\n                \"qtext\": \"How many clothes have you shopped in the last 2 weeks?;\",\n                \"required\": \"TRUE\",\n                \"type\": \"question\",\n                \"options\": [\n                    {\n                        \"optID\": \"Q02A1\",\n                        \"opttxt\": \"None\",\n                        \"nextqID\": \"Q06\"\n                    },\n                    {\n                        \"optID\": \"Q02A2\",\n                        \"opttxt\": \"1-3\",\n                        \"nextqID\": \"Q05\"\n                    },\n                    {\n                        \"optID\": \"Q02A2\",\n                        \"opttxt\": \"More than 3\",\n                        \"nextqID\": \"Q05\"\n                    }\n                ]\n            },\n            {\n                \"qID\": \"Q03\",\n                \"qtext\": \"How many appliances have you bought in the last 2 weeks?\",\n                \"required\": \"TRUE\",\n                \"type\": \"question\",\n                \"options\": [\n                    {\n                        \"optID\": \"Q03A1\",\n                        \"opttxt\": \"None\",\n                        \"nextqID\": \"Q06\"\n                    },\n                    {\n                        \"optID\": \"Q03A2\",\n                        \"opttxt\": \"1-3 \",\n                        \"nextqID\": \"Q05\"\n                    },\n                    {\n                        \"optID\": \"Q03A3\",\n                        \"opttxt\": \"More than 3\",\n                        \"nextqID\": \"Q05\"\n                    }\n                ]\n            },\n            {\n                \"qID\": \"Q04\",\n                \"qtext\": \"How many cosmetinc items have you bought in the last 2 weeks?\",\n                \"required\": \"TRUE\",\n                \"type\": \"question\",\n                \"options\": [\n                    {\n                        \"optID\": \"Q04A1\",\n                        \"opttxt\": \"None\",\n                        \"nextqID\": \"Q06\"\n                    },\n                    {\n                        \"optID\": \"Q04A2\",\n                        \"opttxt\": \"1-5\",\n                        \"nextqID\": \"Q05\"\n                    },\n                    {\n                        \"optID\": \"Q04A2\",\n                        \"opttxt\": \"More than 5\",\n                        \"nextqID\": \"Q05\"\n                    }\n                ]\n            },\n            {\n                \"qID\": \"Q05\",\n                \"qtext\": \"Are you satisfied with the purchase(s)?\",\n                \"required\": \"TRUE\",\n                \"type\": \"question\",\n                \"options\": [\n                    {\n                        \"optID\": \"Q05A1\",\n                        \"opttxt\": \"Yes\",\n                        \"nextqID\": \"Q07\"\n                    },\n                    {\n                        \"optID\": \"Q05A2\",\n                        \"opttxt\": \"No\",\n                        \"nextqID\": \"Q07\"\n                    }\n                ]\n            },\n            {\n                \"qID\": \"Q06\",\n                \"qtext\": \"Do you plan on buying in the future\",\n                \"required\": \"TRUE\",\n                \"type\": \"question\",\n                \"options\": [\n                    {\n                        \"optID\": \"Q06A1\",\n                        \"opttxt\": \"Yes\",\n                        \"nextqID\": \"Q07\"\n                    },\n                    {\n                        \"optID\": \"Q06A2\",\n                        \"opttxt\": \"No\",\n                        \"nextqID\": \"Q07\"\n                    }\n                ]\n            },\n            {\n                \"qID\": \"Q07\",\n                \"qtext\": \"Thank you for your responses!;\",\n                \"required\": \"TRUE\",\n                \"type\": \"question\",\n                \"options\": [\n                    {}\n                ]\n            }\n        ],\n        \"creator\": \"63dac4fa63085c34f73f18f7\"\n    }\n]"
+            }
+        ]
+    },
+    {
+        "name": "/question",
+        "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+                "raw": "{{baseURL}}/question/:questionnaireID/:questionID",
+                "host": [
+                    "{{baseURL}}"
+                ],
+                "path": [
+                    "question",
+                    ":questionnaireID",
+                    ":questionID"
+                ],
+                "variable": [
+                    {
+                        "key": "questionnaireID",
+                        "value": "QQ002"
+                    },
+                    {
+                        "key": "questionID",
+                        "value": "Q01"
+                    }
+                ]
+            }
+        },
+        "response": [
+            {
+                "name": "/question",
+                "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                        "raw": "https://localhost:9103/intelliq_api/question/:questionnaireID/:questionID",
+                        "protocol": "https",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "9103",
+                        "path": [
+                            "intelliq_api",
+                            "question",
+                            ":questionnaireID",
+                            ":questionID"
+                        ],
+                        "variable": [
+                            {
+                                "key": "questionnaireID",
+                                "value": "QQ002"
+                            },
+                            {
+                                "key": "questionID",
+                                "value": "Q01"
+                            }
+                        ]
+                    }
+                },
+                "status": "OK",
+                "code": 200,
+                "_postman_previewlanguage": "json",
+                "header": [
+                    {
+                        "key": "X-Powered-By",
+                        "value": "Express"
+                    },
+                    {
+                        "key": "Access-Control-Allow-Origin",
+                        "value": "*"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json; charset=utf-8"
+                    },
+                    {
+                        "key": "Content-Length",
+                        "value": "395"
+                    },
+                    {
+                        "key": "ETag",
+                        "value": "W/\"18b-9IkRBRsmvJNpW1hocYJsZDtrI5I\""
+                    },
+                    {
+                        "key": "Date",
+                        "value": "Sun, 12 Feb 2023 19:47:24 GMT"
+                    },
+                    {
+                        "key": "Connection",
+                        "value": "keep-alive"
+                    },
+                    {
+                        "key": "Keep-Alive",
+                        "value": "timeout=5"
+                    }
+                ],
+                "cookie": [],
+                "body": "{\n    \"questionnaireID\": \"QQ002\",\n    \"qID\": \"Q01\",\n    \"question\": [\n        {\n            \"qtext\": \"What do you like to shop?\",\n            \"required\": \"TRUE\",\n            \"type\": \"question\",\n            \"options\": [\n                {\n                    \"_id\": \"63e9424cc151c7f99b0e24bf\",\n                    \"optID\": \"Q01A1\",\n                    \"opttxt\": \"Clothes\",\n                    \"nextqID\": \"Q02\"\n                },\n                {\n                    \"_id\": \"63e9424cc151c7f99b0e24c0\",\n                    \"optID\": \"Q01A2\",\n                    \"opttxt\": \"Tech\",\n                    \"nextqID\": \"Q03\"\n                },\n                {\n                    \"_id\": \"63e9424cc151c7f99b0e24c1\",\n                    \"optID\": \"Q01A3\",\n                    \"opttxt\": \"Cosmetics\",\n                    \"nextqID\": \"Q04\"\n                }\n            ]\n        }\n    ]\n}"
+            }
+        ]
+    },
+    {
+        "name": "/doanswer",
+        "request": {
+            "method": "POST",
+            "header": [],
+            "url": {
+                "raw": "{{baseURL}}/doanswer/:questionnaireID/:questionID/:session/:optionID",
+                "host": [
+                    "{{baseURL}}"
+                ],
+                "path": [
+                    "doanswer",
+                    ":questionnaireID",
+                    ":questionID",
+                    ":session",
+                    ":optionID"
+                ],
+                "variable": [
+                    {
+                        "key": "questionnaireID",
+                        "value": "QQ002"
+                    },
+                    {
+                        "key": "questionID",
+                        "value": "Q01"
+                    },
+                    {
+                        "key": "session",
+                        "value": "0001"
+                    },
+                    {
+                        "key": "optionID",
+                        "value": "Q01A1"
+                    }
+                ]
+            }
+        },
+        "response": [
+            {
+                "name": "/doanswer",
+                "originalRequest": {
+                    "method": "POST",
+                    "header": [],
+                    "url": {
+                        "raw": "https://localhost:9103/intelliq_api/doanswer/:questionnaireID/:questionID/:session/:optionID",
+                        "protocol": "https",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "9103",
+                        "path": [
+                            "intelliq_api",
+                            "doanswer",
+                            ":questionnaireID",
+                            ":questionID",
+                            ":session",
+                            ":optionID"
+                        ],
+                        "variable": [
+                            {
+                                "key": "questionnaireID",
+                                "value": "QQ002"
+                            },
+                            {
+                                "key": "questionID",
+                                "value": "Q01"
+                            },
+                            {
+                                "key": "session",
+                                "value": "0001"
+                            },
+                            {
+                                "key": "optionID",
+                                "value": "Q01A1"
+                            }
+                        ]
+                    }
+                },
+                "status": "OK",
+                "code": 200,
+                "_postman_previewlanguage": "plain",
+                "header": [
+                    {
+                        "key": "X-Powered-By",
+                        "value": "Express"
+                    },
+                    {
+                        "key": "Access-Control-Allow-Origin",
+                        "value": "*"
+                    },
+                    {
+                        "key": "Date",
+                        "value": "Sun, 12 Feb 2023 19:58:07 GMT"
+                    },
+                    {
+                        "key": "Connection",
+                        "value": "keep-alive"
+                    },
+                    {
+                        "key": "Keep-Alive",
+                        "value": "timeout=5"
+                    },
+                    {
+                        "key": "Content-Length",
+                        "value": "0"
+                    }
+                ],
+                "cookie": [],
+                "body": null
+            }
+        ]
+    },
+    {
+        "name": "/getsessionanswers",
+        "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+                "raw": "{{baseURL}}/getsessionanswers/:questionnaireID/:session",
+                "host": [
+                    "{{baseURL}}"
+                ],
+                "path": [
+                    "getsessionanswers",
+                    ":questionnaireID",
+                    ":session"
+                ],
+                "variable": [
+                    {
+                        "key": "questionnaireID",
+                        "value": "QQ002"
+                    },
+                    {
+                        "key": "session",
+                        "value": "0001"
+                    }
+                ]
+            }
+        },
+        "response": [
+            {
+                "name": "/getsessionanswers",
+                "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                        "raw": "https://localhost:9103/intelliq_api/getsessionanswers/:questionnaireID/:session",
+                        "protocol": "https",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "9103",
+                        "path": [
+                            "intelliq_api",
+                            "getsessionanswers",
+                            ":questionnaireID",
+                            ":session"
+                        ],
+                        "variable": [
+                            {
+                                "key": "questionnaireID",
+                                "value": "QQ002"
+                            },
+                            {
+                                "key": "session",
+                                "value": "0001"
+                            }
+                        ]
+                    }
+                },
+                "status": "OK",
+                "code": 200,
+                "_postman_previewlanguage": "json",
+                "header": [
+                    {
+                        "key": "X-Powered-By",
+                        "value": "Express"
+                    },
+                    {
+                        "key": "Access-Control-Allow-Origin",
+                        "value": "*"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json; charset=utf-8"
+                    },
+                    {
+                        "key": "Content-Length",
+                        "value": "86"
+                    },
+                    {
+                        "key": "ETag",
+                        "value": "W/\"56-alco9m8jYEdCjgYqh1XlSdYlBR4\""
+                    },
+                    {
+                        "key": "Date",
+                        "value": "Sun, 12 Feb 2023 19:59:00 GMT"
+                    },
+                    {
+                        "key": "Connection",
+                        "value": "keep-alive"
+                    },
+                    {
+                        "key": "Keep-Alive",
+                        "value": "timeout=5"
+                    }
+                ],
+                "cookie": [],
+                "body": "[\n    {\n        \"questionnaireID\": \"QQ002\",\n        \"answers\": [\n            {\n                \"ans\": \"Q01A1\",\n                \"qID\": \"Q01\"\n            }\n        ],\n        \"session\": \"0001\"\n    }\n]"
+            }
+        ]
+    },
+    {
+        "name": "/getquestionanswers",
+        "request": {
+            "method": "GET",
+            "header": [],
+            "url": {
+                "raw": "{{baseURL}}/getquestionanswers/:questionnaireID/:questionID",
+                "host": [
+                    "{{baseURL}}"
+                ],
+                "path": [
+                    "getquestionanswers",
+                    ":questionnaireID",
+                    ":questionID"
+                ],
+                "variable": [
+                    {
+                        "key": "questionnaireID",
+                        "value": "QQ002"
+                    },
+                    {
+                        "key": "questionID",
+                        "value": "Q01"
+                    }
+                ]
+            }
+        },
+        "response": [
+            {
+                "name": "/getquestionanswers",
+                "originalRequest": {
+                    "method": "GET",
+                    "header": [],
+                    "url": {
+                        "raw": "https://localhost:9103/intelliq_api/getquestionanswers/:questionnaireID/:questionID",
+                        "protocol": "https",
+                        "host": [
+                            "localhost"
+                        ],
+                        "port": "9103",
+                        "path": [
+                            "intelliq_api",
+                            "getquestionanswers",
+                            ":questionnaireID",
+                            ":questionID"
+                        ],
+                        "variable": [
+                            {
+                                "key": "questionnaireID",
+                                "value": "QQ002"
+                            },
+                            {
+                                "key": "questionID",
+                                "value": "Q01"
+                            }
+                        ]
+                    }
+                },
+                "status": "OK",
+                "code": 200,
+                "_postman_previewlanguage": "json",
+                "header": [
+                    {
+                        "key": "X-Powered-By",
+                        "value": "Express"
+                    },
+                    {
+                        "key": "Access-Control-Allow-Origin",
+                        "value": "*"
+                    },
+                    {
+                        "key": "Content-Type",
+                        "value": "application/json; charset=utf-8"
+                    },
+                    {
+                        "key": "Content-Length",
+                        "value": "182"
+                    },
+                    {
+                        "key": "ETag",
+                        "value": "W/\"b6-29ryx5COluYn7ES319Z6DIklIl8\""
+                    },
+                    {
+                        "key": "Date",
+                        "value": "Sun, 12 Feb 2023 19:59:54 GMT"
+                    },
+                    {
+                        "key": "Connection",
+                        "value": "keep-alive"
+                    },
+                    {
+                        "key": "Keep-Alive",
+                        "value": "timeout=5"
+                    }
+                ],
+                "cookie": [],
+                "body": "{\n    \"questionnaireID\": \"QQ002\",\n    \"qID\": \"Q01\",\n    \"answer\": [\n        {\n            \"ans\": \"Q01A1\",\n            \"session\": \"0002\"\n        },\n        {\n            \"ans\": \"Q01A1\",\n            \"session\": \"0003\"\n        },\n        {\n            \"ans\": \"Q01A1\",\n            \"session\": \"0004\"\n        },\n        {\n            \"ans\": \"Q01A1\",\n            \"session\": \"0001\"\n        }\n    ]\n}"
+            }
+        ]
+    }
+],
+        "variable": [
+    {
+        "key": "questionnaireID",
+        "value": ""
+    },
+    {
+        "key": "baseURL",
+        "value": "https://localhost:9103/intelliq_api"
+    }
+]
+}
