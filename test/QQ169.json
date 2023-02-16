@@ -1,0 +1,31 @@
+{
+	"questionnaireID": "QQ169",
+	"questionnaireTitle": "My kek research questionnaire",
+	"keywords": ["footbal", "islands", "timezone"],
+	"questions": [{
+		"qID": "P00",
+		"qtext": "Ποιο είναι το mail σας;",
+		"required": "FALSE",
+		"type": "profile",
+		"options": [{
+			"ans": "P00TXT",
+			"opttxt": "<open string>",
+			"nextqID": "P01"
+		}]
+	}, {
+		"qID": "Q09",
+		"qtext": "Με δεδομένο ότι απαντήσατε [*Q08A2] στην ερώτηση [*Q08]: Προτιμάτετη θερινή ή την χειμερινή ώρα;",
+		"required": "TRUE",
+		"type": "question",
+		"options": [{
+			"ans": "Q09A1",
+			"opttxt": "Θερινή",
+			"nextqID": "-"
+		}, {
+			"ans": "Q09A2",
+			"opttxt": "Χειμερινή",
+			"nextqID": "-"
+		}]
+	}],
+	"creator": "63dac4fa63085c34f73f18f7"
+}
