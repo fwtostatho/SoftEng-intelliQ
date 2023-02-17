@@ -9,7 +9,7 @@ This is the Software Engineering class project for team 22 for 2022-2023.
 
 ## Project Setup
 
-Node.js, MongoDB and Postman need to be installed.
+Node.js, [MongoDB](https://www.mongodb.com/try/download/community) and Postman need to be installed.
 
 For the data dump backup/restore, [MongoDB Command Line Database Tools need to be installed](https://www.mongodb.com/try/download/database-tools), the downloaded contents need to be added to the MongoDB installation path, and the bin folder from there needs to be added to the system's PATH variable.
 
