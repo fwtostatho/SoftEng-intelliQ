@@ -10,6 +10,7 @@ module.exports = function (err, customMessage) {
     }
 
     let errMessage = err.response.data.message;
+    //console.log(errMessage);
 
     (customMessage === undefined) ? console.log(chalk.red(errMessage)) : console.log(chalk.red(errMessage + '\n' + customMessage))
     //console.log('error');

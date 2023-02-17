@@ -34,10 +34,10 @@ module.exports = function(o) {
         uploadFile(file)
             .then(response => {
                 //console.log(response.data);
-                console.log('File uploaded successfully');
+                console.log(chalk.green('File uploaded successfully'));
             })
-            .catch(error => {
-                console.error(error);
+            .catch(err => {
+                errorHandler(err);
             });
           
         

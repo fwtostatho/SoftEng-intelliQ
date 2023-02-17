@@ -1,0 +1,17 @@
+{
+	"questionnaireID": "QQ169",
+	"questionnaireTitle": "My wrong research questionnaire",
+	"keywords": ["footbal", "islands", "timezone"],
+	"questions": [{
+		"qID": "P00",
+		"qtext": "Ποιο είναι το mail σας;",
+		"required": "FALSE",
+		"type": "profile",
+		"options": [{
+			"ans": "P00TXT",
+			"opttxt": "<open string>",
+			"nextqID": "P01"
+		}]
+	}],
+	"creator": "63dac4fa63085c34f73f18f7"
+
