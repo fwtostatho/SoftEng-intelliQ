@@ -13,7 +13,7 @@ const answerSchema = new Schema({
     session: {
       type: String ,required: true, maxLength: 4
     }}
-        //session =name tou user
+        //session:name of user
     , {
       versionKey: false
   });

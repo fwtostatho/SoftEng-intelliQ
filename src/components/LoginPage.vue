@@ -16,10 +16,7 @@
                         <v-card-item class="bg-indigo-lighten-5">
                             <v-card-title class="align-center">
                                     <span class="text-h4">
-                                        <p class="text-center">
                                              Login
-                                        </p>
-
                                     </span>
                             </v-card-title>
                         </v-card-item>
@@ -31,15 +28,15 @@
                             ></v-select>
                         </v-card-item>
 
-                        <v-card-item v-if="selectedValue === 'Admin'" class="bg-indigo-lighten-5" >
+                        <v-card-item v-if="selectedValue === 'Admin'" class="bg-indigo-lighten-5">
                             <v-select
-                                    v-model="adminame"
+                                    v-model="adName"
                                     v-bind:items="admins"
                                     :items="admins"
                                     label="Select an admin"
                             ></v-select>
                         </v-card-item>
-                        <v-card-item v-if="selectedValue === 'Institution'" class="bg-indigo-lighten-5" >
+                        <v-card-item v-if="selectedValue === 'Institution'" class="bg-indigo-lighten-5">
                             <v-select
                                     :items="institutions"
                                     label="Select an Institution "
@@ -52,12 +49,11 @@
                                     block
                                     rounded
 
-                                    @click="login(selectedValue)"
+                                    @click="login(adName)"
                                     class="bg-indigo-lighten-1">
                                 Submit
                             </v-btn>
                         </v-card-item>
-
                     </v-card>
                 </v-col>
             </v-row>
@@ -71,8 +67,9 @@
 <script>
 import {options} from "axios";
 import requests from '../requests';
-import { mapActions, mapGetters } from "vuex";
-export const BASE_URL = 'http://localhost:9103/intelliq_api' ;
+import {mapActions, mapGetters} from "vuex";
+
+export const BASE_URL = 'http://localhost:9103/intelliq_api';
 
 
 export default {
@@ -80,39 +77,31 @@ export default {
     data: () => ({
         items: ['User', 'Admin'],
         admins: [],
-        institutions: [],
         selectedValue: '',
         reveal: false,
-        adminame: ''
+        adName: [],
 
     }),
     async created() {
-        try{
+        try {
             this.admins = await requests.get(BASE_URL + '/adminPage/');
-        }catch (error) {
+        } catch (error) {
             reject(error);
         }
     },
     methods: {
 
-        login() {
+        login(admin) {
             if (this.selectedValue === 'User') {
-                // var loginUserObj = {
-                //     name: ''
-                // }
-                // requests.post(BASE_URL +'/user/postUser/', loginUserObj, this.loginCallBackUser);
                 this.$router.push({path: '/usersurveys'});
             }
             if (this.selectedValue === 'Admin') {
-                this.$router.push({ name: 'Admin', params: this.selectedValue });
+                this.$router.push({path: '/admin/'+ this.adName, params: {admin} });
             }
         },
 
 
-        // loginCallBackUser(response) {
-        //     this.$router.push({path: '/usersurveys'});
-        //     console.log(response);
-        // }
+
     }
 }
 

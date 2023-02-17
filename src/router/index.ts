@@ -8,6 +8,8 @@ import Admin from '../components/Admin.vue'
 import PostUser from '../components/Postuser.vue'
 import Questionnarie from '../components/UploadQuestionnarie.vue'
 import AnswerSurvey from '../components/AnswerSurvey.vue'
+import CreateSurvey from '../components/CreateSurvey.vue'
+import ViewAnswers from "../components/ViewAnswers.vue"
 import App from '../components/App.vue'
 
 // @ts-ignore
@@ -30,10 +32,16 @@ const routes = [
         component: Postuser
     },
     {
-        path: '/admin',
+        path: '/admin/:admin',
         name: 'Admin',
         component: Admin
     },
+
+    {   path: '/admin/answeredSurvey/:questionnaireID',
+        name: 'ViewAnswers',
+        component: ViewAnswers
+    },
+
     {
         path: '/usersurveys',
         name: 'UserSurveys',
@@ -49,6 +57,11 @@ const routes = [
         path: '/usersurveys/:id',
         name: 'AnswerSurvey',
         component: AnswerSurvey
+    },
+    {
+        path: '/createsurvey/:adminID',
+        name: 'CreateSurvey',
+        component: CreateSurvey
     },
 
 ]

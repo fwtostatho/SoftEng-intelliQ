@@ -1,31 +1,20 @@
 #  SoftEng22-22
 
-This template should help get you started developing with Vue 3 in Vite.
+This is the Software Engineering class project for team 22 for 2022-2023.
 
 ## Recommended IDE Setup
 
-[VSCode](https://code.visualstudio.com/) + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
+[Intellij](https://www.jetbrains.com/idea/) or [VSCode](https://code.visualstudio.com/)  + [Volar](https://marketplace.visualstudio.com/items?itemName=Vue.volar) (and disable Vetur) + [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin).
 
-## Type Support for `.vue` Imports in TS
-
-TypeScript cannot handle type information for `.vue` imports by default, so we replace the `tsc` CLI with `vue-tsc` for type checking. In editors, we need [TypeScript Vue Plugin (Volar)](https://marketplace.visualstudio.com/items?itemName=Vue.vscode-typescript-vue-plugin) to make the TypeScript language service aware of `.vue` types.
-
-If the standalone TypeScript plugin doesn't feel fast enough to you, Volar has also implemented a [Take Over Mode](https://github.com/johnsoncodehk/volar/discussions/471#discussioncomment-1361669) that is more performant. You can enable it by the following steps:
-
-1. Disable the built-in TypeScript Extension
-    1) Run `Extensions: Show Built-in Extensions` from VSCode's command palette
-    2) Find `TypeScript and JavaScript Language Features`, right click and select `Disable (Workspace)`
-2. Reload the VSCode window by running `Developer: Reload Window` from the command palette.
-
-## Customize configuration
-
-See [Vite Configuration Reference](https://vitejs.dev/config/).
 
 ## Project Setup
 
 ```sh
 npm install
 ```
+Node.js, MongoDB and Postman need to be installed.
+
+For the data dump backup/restore, [MongoDB Command Line Database Tools need to be installed](https://www.mongodb.com/try/download/database-tools), the downloaded contents need to be added to the MongoDB installation path, and the bin folder from there needs to be added to the system's PATH variable.
 
 ### Compile and Hot-Reload for Development
 
@@ -33,20 +22,15 @@ npm install
 npm run dev
 ```
 
-### Type-Check, Compile and Minify for Production
+### Load the frontend
 
 ```sh
-npm run build
+npm run serve
 ```
 
-### Run Unit Tests with [Vitest](https://vitest.dev/)
+### CLI
 
 ```sh
-npm run test:unit
+npm install -g
 ```
-
-### Lint with [ESLint](https://eslint.org/)
-
-```sh
-npm run lint
-```
+This command is recommended to be run while on the CLI folder.

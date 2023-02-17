@@ -28,23 +28,20 @@ exports.healthCheck = (req, res) => {
 exports.resetAll = (req, res) => {
     answerModel.deleteMany({}, (error) => {
         if (error) {
-            res.status(500).json({"status":"failed", "reason":error});
-        } else {
-            res.status(200).json({"status":"OK"});
+            return res.status(500).json({"status":"failed", "reason":error});
         }
     }),
-            adminModel.deleteMany({}, (error) => {
-                if (error) {
-                    res.status(500).json({"status":"failed", "reason":error});
-                } else {
-                    res.status(200).json({"status":"OK"});
-                }
-            }),
+            // adminModel.deleteMany({}, (error) => {
+            //     if (error) {
+            //         return res.status(500).json({"status":"failed", "reason":error});
+            //     }
+            // }),
             questionnaireModel.deleteMany({}, (error) => {
                 if (error) {
-                    res.status(500).json({"status":"failed", "reason":error});
-                } else {
-                    res.status(200).json({"status":"OK"});
+                   return  res.status(500).json({"status":"failed", "reason":error});
+                }
+                else {
+                    return res.status(200).json({"status":"OK"});
                 }
     })
 }
@@ -52,14 +49,19 @@ exports.resetAll = (req, res) => {
 exports.questionnaire_upd = async (req, res) => {          //find fields
     const file= req.file;
     const fileData = fs.readFileSync(file.path);
-    const data = JSON.parse(fileData);
-
-    const questionnaire = new questionnaireModel(data);
     try {
-        await questionnaire.save();
-        res.status(201).send(questionnaire);
-    }catch(error) {
-        res.status(500).send(error);
+        const data = JSON.parse(fileData);
+        const questionnaire = new questionnaireModel(data);
+        try {
+            await questionnaire.save();
+            res.status(201).send(questionnaire);
+        }catch(error) {
+            res.status(500).send(error);
+            return
+        }
+    }catch (error) {
+        res.status(400).json({message: 'Bad request'});
+        return
     }
 }
 
@@ -69,6 +71,7 @@ exports.resetq = (req, res) => {
     answerModel.deleteMany({  questionnaireID: id  }, (error) => {
         if (error) {
             res.status(500).json({"status":"failed", "reason":error});
+            return
         } else {
             res.status(200).json({"status":"OK"});
         }

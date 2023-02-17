@@ -13,7 +13,7 @@ class requests {
             try {
                 const res = await axios.get(url);
                 const data = res.data;
-                const names = data.map(doc => doc.name)
+                const names=data.map(doc => doc.name);
                 resolve(names);
             } catch (error) {
                 reject(error);
@@ -21,16 +21,49 @@ class requests {
         })
     }
 
-    // static post(url, data, callback) {
-    //     return new Promise(async (resolve, reject) => {
-    //         try {
-    //             const res = await axios.post(url, data);
-    //             callback(res.data);
-    //         } catch (error) {
-    //             reject(error);
-    //         }
-    //     })
-    // }
+    static getQuestionnaire(url) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const res = await axios.get(url);
+                const data = res.data;
+                const questionnaire= data.map(doc => ({ questionnaireTitle: doc.questionnaireTitle,
+                    keywords: doc.keywords,
+                    questions: doc.questions,
+                    questionnaireID: doc.questionnaireID,
+                    creator: doc.creator}));
+                resolve(questionnaire[0]);
+            } catch (error) {
+                reject(error);
+            }
+        })
+    }
+
+    static getAnswers(url) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const res = await axios.get(url);
+                const data = res.data;
+                // const questionnaire= data.map(doc => ({ questionnaireTitle: doc.questionnaireTitle,
+                //     keywords: doc.keywords,
+                //     questions: doc.questions,
+                //     questionnaireID: doc.questionnaireID,
+                //     creator: doc.creator}));
+                resolve(data);
+            } catch (error) {
+                reject(error);
+            }
+        })
+    }
+
+    static postSurvey(url, data, config) {
+        return new Promise(async (resolve, reject) => {
+            try {
+                const res = await axios.post(url, data, config);
+            } catch (error) {
+                reject(error);
+            }
+        })
+    }
 
     static post(url) {
         return new Promise(async (resolve, reject) => {

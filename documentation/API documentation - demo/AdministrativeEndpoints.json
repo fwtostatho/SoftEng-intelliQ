@@ -4,7 +4,7 @@
         "name": "EndpointsforCLI",
         "description": "# Introduction\n\nThese are the Administrative Endpoints of our server.\n\n# Overview\n\nExamples are included in each endpoint that returns a response.\n\n# Error Codes\n\nError handling with appropriate HTTP status codes.\n\n\\>500 for Internal server error",
         "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
-        "_exporter_id": "25448118"
+        "_exporter_id": "25404223"
     },
     "item": [
         {
@@ -30,14 +30,11 @@
                         "method": "GET",
                         "header": [],
                         "url": {
-                            "raw": "https://localhost:9103/intelliq_api/admin/healthcheck",
-                            "protocol": "https",
+                            "raw": "{{baseURL}}/admin/healthcheck",
                             "host": [
-                                "localhost"
+                                "{{baseURL}}"
                             ],
-                            "port": "9103",
                             "path": [
-                                "intelliq_api",
                                 "admin",
                                 "healthcheck"
                             ]
@@ -69,7 +66,7 @@
                         },
                         {
                             "key": "Date",
-                            "value": "Sun, 12 Feb 2023 20:41:03 GMT"
+                            "value": "Thu, 16 Feb 2023 00:28:26 GMT"
                         },
                         {
                             "key": "Connection",
@@ -107,14 +104,11 @@
                     ]
                 },
                 "url": {
-                    "raw": "https://localhost:9103/intelliq_api/admin/questionnaire_upd",
-                    "protocol": "https",
+                    "raw": "{{baseURL}}/admin/questionnaire_upd",
                     "host": [
-                        "localhost"
+                        "{{baseURL}}"
                     ],
-                    "port": "9103",
                     "path": [
-                        "intelliq_api",
                         "admin",
                         "questionnaire_upd"
                     ]
@@ -214,7 +208,64 @@
                     ]
                 }
             },
-            "response": []
+            "response": [
+                {
+                    "name": "/admin/resetall",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseURL}}/admin/resetall",
+                            "host": [
+                                "{{baseURL}}"
+                            ],
+                            "path": [
+                                "admin",
+                                "resetall"
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "X-Powered-By",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "Access-Control-Allow-Origin",
+                            "value": "*"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "Content-Length",
+                            "value": "15"
+                        },
+                        {
+                            "key": "ETag",
+                            "value": "W/\"f-v/Y1JusChTxrQUzPtNAKycooOTA\""
+                        },
+                        {
+                            "key": "Date",
+                            "value": "Thu, 16 Feb 2023 00:26:35 GMT"
+                        },
+                        {
+                            "key": "Connection",
+                            "value": "keep-alive"
+                        },
+                        {
+                            "key": "Keep-Alive",
+                            "value": "timeout=5"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"status\": \"OK\"\n}"
+                }
+            ]
         },
         {
             "name": "/admin/resetq/:questionnaireID",
@@ -239,13 +290,97 @@
                     ]
                 }
             },
-            "response": []
+            "response": [
+                {
+                    "name": "/admin/resetq/:questionnaireID",
+                    "originalRequest": {
+                        "method": "POST",
+                        "header": [],
+                        "url": {
+                            "raw": "{{baseURL}}/admin/resetq/:questionnaireID",
+                            "host": [
+                                "{{baseURL}}"
+                            ],
+                            "path": [
+                                "admin",
+                                "resetq",
+                                ":questionnaireID"
+                            ],
+                            "variable": [
+                                {
+                                    "key": "questionnaireID",
+                                    "value": "QQ003"
+                                }
+                            ]
+                        }
+                    },
+                    "status": "OK",
+                    "code": 200,
+                    "_postman_previewlanguage": "json",
+                    "header": [
+                        {
+                            "key": "X-Powered-By",
+                            "value": "Express"
+                        },
+                        {
+                            "key": "Access-Control-Allow-Origin",
+                            "value": "*"
+                        },
+                        {
+                            "key": "Content-Type",
+                            "value": "application/json; charset=utf-8"
+                        },
+                        {
+                            "key": "Content-Length",
+                            "value": "15"
+                        },
+                        {
+                            "key": "ETag",
+                            "value": "W/\"f-v/Y1JusChTxrQUzPtNAKycooOTA\""
+                        },
+                        {
+                            "key": "Date",
+                            "value": "Thu, 16 Feb 2023 00:28:48 GMT"
+                        },
+                        {
+                            "key": "Connection",
+                            "value": "keep-alive"
+                        },
+                        {
+                            "key": "Keep-Alive",
+                            "value": "timeout=5"
+                        }
+                    ],
+                    "cookie": [],
+                    "body": "{\n    \"status\": \"OK\"\n}"
+                }
+            ]
+        }
+    ],
+    "event": [
+        {
+            "listen": "prerequest",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
+        },
+        {
+            "listen": "test",
+            "script": {
+                "type": "text/javascript",
+                "exec": [
+                    ""
+                ]
+            }
         }
     ],
     "variable": [
         {
             "key": "baseURL",
-            "value": "https://localhost:9103/intelliq_api"
+            "value": "http://localhost:9103/intelliq_api"
         }
     ]
 }

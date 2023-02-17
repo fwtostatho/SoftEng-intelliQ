@@ -28,8 +28,6 @@ exports.getQuestionnaire = async (req, res) => {
         const format = req.query.format;
         if (format === 'csv') {
             const data1 = data.map(item => item._doc);
-            //const fields = ['questionnaireID', 'quetionnaireTitle', 'keywords', 'questions.qID', 'questions.qtext', 'questions.required', 'questions.type', 'questions.options.optID', 'questions.options.opttxt', 'questions.options.nextqID','creator'];
-            //const opts = { fields };
             const csvdata = json2csv(data1);
             res.setHeader("Content-Type", "text/csv");
             res.status(200).send(csvdata);
@@ -78,11 +76,9 @@ exports.getQuestionnaireQuestion = async (req, res) => {
         res.status(500).json({message: 'Internal server error'});
         return;
     }
-        //const question2 = question.find({ },{'questions.options._id':0}).exec();
 
 
 }
-//,'questions._id':0,'questions.options._id':0
 exports.postQuestionnaire =  async (req, res) => {
     try {
         const questionnaireID = req.params.questionnaireID;
@@ -178,7 +174,7 @@ exports.getQuestionAnswers = async (req, res) => {
 
         const data = {"questionnaireID": id1, "qID": id2, answer};
         const format = req.query.format;
-        if(data.length==0){
+        if(answer.length==0){
             res.status(402).json({message: 'No data'});
             return;
         }
@@ -195,3 +191,4 @@ exports.getQuestionAnswers = async (req, res) => {
         return;
     }
 }
+

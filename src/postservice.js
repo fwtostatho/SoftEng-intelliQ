@@ -37,8 +37,7 @@ class postService {
             try {
                 const res = await axios.get(url3);
                 const data = res.data;
-                const surveys = data.map(doc => ({ name: doc.questionnaireTitle, id: doc._id, questions: doc.questions, questionnaire_id: doc.questionnaireID}));
-
+                const surveys = data.map(doc => ({ name: doc.questionnaireTitle, id: doc._id, questions: doc.questions, questionnaire_id: doc.questionnaireID, creator:doc.creator}));
                 resolve(surveys);
 
             } catch (error) {
@@ -46,18 +45,7 @@ class postService {
             }
         })
     }
-    static getquestions(params){
-        return new Promise(async (resolve, reject) => {
-            try {
-                const res = await axios.get(url3);
-                const data = res.data;
 
-                resolve(data.questions);
-            } catch (error) {
-                reject(error);
-            }
-        });
-    }
     static getinstitution(){
         return new Promise(async (resolve, reject) => {
             try {

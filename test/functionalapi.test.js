@@ -407,6 +407,24 @@ describe('Questionnaire_upd Endpoint', () => {
             })
             done();
     });
+    it("Should return status code 402 when unsuccessful", (done) => {
+        function uploadFile(file) {
+            const formData = new FormData();
+            formData.append('', fs.createReadStream(file));
+          
+            return axios.post('/intelliq_api/admin/questionnaire_upd', formData, {
+              headers: {
+                ...formData.getHeaders()
+              }
+            });
+        }
+        const file = __dirname + '/QQ170.json';
+        uploadFile(file)
+            .then(response => {
+                expect(response.status).to.eq(402);
+            })
+            done();
+    });
     after(function(done) {
         // Disconnect from your database after all tests are done
         mongoose.disconnect(done);

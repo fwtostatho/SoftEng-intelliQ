@@ -51,7 +51,6 @@ export default {
 methods: {
     // ...mapActions([]),
             goToSurvey(id) {
-
                 this.$router.push({ name: 'AnswerSurvey', params: { id } });
             },
         },

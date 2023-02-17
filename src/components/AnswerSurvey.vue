@@ -2,7 +2,7 @@
     <v-app id="inspire">
         <v-app-bar app color="indigo" class="pa-0" :elevation="5">
             <v-col class="d-flex justify-space-around mt-10 mb-10">
-                <h1>IntelliQ</h1>
+               <h1>IntelliQ</h1>
             </v-col>
         </v-app-bar>
 
@@ -125,14 +125,14 @@ export default {
                 }
             }
             const baseUrl = 'http://localhost:9103/intelliq_api/doanswer/';
-            const url = `${baseUrl}${this.survey.id}/${this.questionID}/${this.session}/${this.optionID}`;
+            const url = `${baseUrl}${this.survey.questionnaire_id}/${this.questionID}/${this.session}/${this.optionID}`;
             // console.log(this.survey.id);
             // console.log(this.questionID);
             // console.log(this.session);
             // console.log(this.optionID);
             //console.log(url);
 
-            requests.post(url);
+            requests.postAnswer(url);
 
             // add the answer to the answers array
             // this.answers.push({ question_id: this.current.qID, answer: selectedValue });
@@ -140,6 +140,7 @@ export default {
         submit() {
             this.$router.push({path: '/usersurveys'});
         }
+
     }
 }
 </script>
