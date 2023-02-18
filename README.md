@@ -70,6 +70,13 @@ npm test
 ```
 while on the 'cli' directory to execute the CLI's functional/unit tests.
 
+When testing the CLI, the server needs to be running, so it is required to have executed 
+
+```sh
+npm run dev
+```
+while in the project's root directory, before running the CLI tests.
+
 ### Dummy Data
 
 The dummy data is included in the 'data' directory, as .json files, as well as in the 'data/survey' directory, in the format supported by the mongodump/mongorestore commands.
